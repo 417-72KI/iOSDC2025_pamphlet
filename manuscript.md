@@ -7,7 +7,7 @@ header-includes: |
   <style>
     div.sourceCode { background-color: #ffffff; }
     pre.sourceCode:before { border: 1px solid #2a211c; content: " "; position: absolute; z-index: -1; }
-    pre.sourceCode { line-height: 16px; border: 1px solid #2a211c; }
+    pre.sourceCode { line-height: 16px; border: 1px solid #2a211c; padding:8px; }
     pre code.sourceCode { white-space: pre-wrap; position: relative; }
 
     div.sourceCode code.swift { color: #000000; }

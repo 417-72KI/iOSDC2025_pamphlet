@@ -12,6 +12,9 @@ trim_trailing_whitespace = true
 [*.{md,yml,rb,js}]
 indent_size = 2
 
+[*.md]
+trim_trailing_whitespace = false
+
 [*.json]
 insert_final_newline = false
 

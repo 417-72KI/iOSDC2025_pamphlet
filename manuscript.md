@@ -1,5 +1,5 @@
 ---
-title: <プロポーザルタイトル>
+title: Package.swiftから始めるSwift 6対応
 author: '417.72KI (Twitter @417_72ki / GitHub: 417-72KI)'
 papersize: a4
 geometry: margin=20mm
@@ -31,6 +31,13 @@ header-includes: |
 ---
 
 ## はじめに
+Swift 6がリリースされてからまもなく1年が経過しようとしていますが、数々のUpcoming Feature FlagsやStrict Concurrency Checkingによる影響度合いの大きさからSwift 6モードに完全移行が叶ったプロダクトはまだまだ多くないのではないでしょうか。
+そしてそれはOSSとして公開されているライブラリも同様です。
+
+一方、Upcoming Feature FlagsやStrict Concurrency Checkingは段階的に適用させることが可能です。
+そしてそれらはPackage.swiftの差分として可視化できます。
+
+本稿では、Swift Packageで公開しているライブラリをSwift 6に対応させるためにPackage.swiftを魔改造した過程を紹介します。
 
 ## セクション
 

@@ -30,7 +30,8 @@ setup:
 	brew install pandoc
 	npm install -g textlint \
 		textlint-filter-rule-comments \
-		textlint-filter-rule-whitelist \
+		textlint-filter-rule-allowlist \
 		textlint-rule-no-dropping-the-ra \
 		textlint-rule-preset-ja-spacing \
-		textlint-rule-preset-ja-technical-writing
+		textlint-rule-preset-ja-technical-writing \
+		textlint-rule-preset-ai-writing

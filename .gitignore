@@ -1,0 +1,5 @@
+.build/
+media/
+.DS_Store
+*.pdf
+*.html

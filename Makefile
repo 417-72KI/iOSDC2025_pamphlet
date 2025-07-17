@@ -10,10 +10,11 @@ pdf: html
 		--print-to-pdf=output/$(FILENAME).pdf \
 		--no-pdf-header-footer \
 		output/$(FILENAME).html
-	rm output/$(FILENAME).html
+	rm -r output/$(FILENAME).html output/css
 
 .PHONY: html
 html: lint
+	cp -r css output/css
 	pandoc $(FILENAME).md -s \
 	-o output/$(FILENAME).html \
 	-c css/github.css \

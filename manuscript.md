@@ -41,8 +41,6 @@ Swift 6がリリースされてからまもなく1年が経過しようとして
 
 本稿では、Swift Packageで公開しているライブラリをSwift 6対応させるためにPackage.swiftを魔改造した過程を紹介します。
 
-(ここまでプロポーザルの説明文)
-
 ## Package.swiftの構造
 Package.swiftはSwift Package Managerの設定ファイルであり、Swift Packageのメタデータを定義します。
 
@@ -122,16 +120,14 @@ targets: [
 ```swift
 let package = Package(...)
 
+// MARK: - Upcoming Feature Flags
 package.targets.forEach { target in
   target.swiftSettings = [
     // .forwardTrailingClosures, // コメントアウトで無効にできる
     .existentialAny,
     .bareSlashRegexLiterals,
     .conciseMagicFile,
-    .importObjcForwardDeclarations,
-    .disableOutwardActorInference,
-    .deprecateApplicationMain,
-    .isolatedDefaultValues,
+    ...
     .globalConcurrency,
   ]
 }
@@ -153,6 +149,7 @@ Package.swiftでStrict Concurrency Checkingを適用するには、`target.swift
 つまり先述と同様、以下のように書くことができます。
 
 ```swift
+// MARK: - Strict Concurrency Checking
 package.targets.forEach { target in
   var settings = target.swiftSettings ?? []
   settings.append(.enableExperimentalFeature("StrictConcurrency"))
@@ -183,7 +180,10 @@ package.targets.forEach { target in
 ```
 
 しかしケースバイケースではありますが、これではどこまでがUpcoming Feature Flagsで、どこからがStrict Concurrency Checkingなのかが分かりにくくなります。
-そのため個人的には2つのループを分けて書くことをおすすめします。
+またあえて2つのループに分けておくことで、**Upcoming Feature Flagsを有効にするためのブロック**と**Strict Concurrency Checkingを有効にするためのブロック**という責務の分担ができます。
+そしてswift-tools-versionを6.0以上にする際Strict Concurrency Checkingのブロックだけを丸ごと消すといったことができます。
+
+以上の理由から個人的には2つのループを分けて書くことをおすすめします。
 
 ## おまけ: 開発 / テストでだけ必要なライブラリの取り扱い
 リリース時には不要でも開発やテストの際に使用しているライブラリがあります。

@@ -2,11 +2,12 @@
 title: Package.swiftから始めるSwift 6対応
 author: '417.72KI (Twitter @417_72ki / GitHub: 417-72KI)'
 papersize: a4
-geometry: margin=20mm
 header-includes: |
   <style>
+  @page { size: A4; margin-top: 8mm; margin-bottom: 20mm; margin-left: 15mm; margin-right: 15mm; }
+  </style>
+  <style>
     div.sourceCode { background-color: #ffffff; }
-    pre.sourceCode:before { border: 1px solid #2a211c; content: " "; position: absolute; z-index: -1; }
     pre.sourceCode { line-height: 16px; border: 1px solid #2a211c; }
     pre code.sourceCode { white-space: pre-wrap; position: relative; }
 
@@ -26,7 +27,9 @@ header-includes: |
     code.bash span.kw { color: #28fe14; font-weight: bold; }
     code.bash span.er { color: #28fe14; font-weight: bold; }
 
-    # ul { margin: -5px 0; }
+    hr { height: 2px; }
+
+    /* ul { margin: -5px 0; } */
     ul li { margin: 10px 0; }
     ol li { margin: 3px 0; }
   </style>
